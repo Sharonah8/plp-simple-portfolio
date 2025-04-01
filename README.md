@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
 
-## Project info
+# Developer Portfolio - Hackathon Project
 
-**URL**: https://lovable.dev/projects/13841211-95dd-4e38-b208-d6e944e3b9bf
+## Overview
 
-## How can I edit this code?
+This is a responsive, modern portfolio website built for a software developer using only HTML, CSS, and vanilla JavaScript. It showcases skills, projects, and contact information in a clean, professional design.
 
-There are several ways of editing your application.
+## Live Demo
 
-**Use Lovable**
+[View the live demo](https://your-github-username.github.io/portfolio-hackathon/) - To be updated after deployment
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/13841211-95dd-4e38-b208-d6e944e3b9bf) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Responsive Design**: Works seamlessly on all devices (desktop, tablet, mobile)
+- **Modern UI/UX**: Clean, professional design with subtle animations and transitions
+- **Interactive Elements**: Navigation highlighting, smooth scrolling, and form validation
+- **Code Showcase**: Animated code snippet in the hero section
+- **Project Showcase**: Highlighted projects with descriptions and links
+- **Contact Form**: Functional contact form with validation
 
-**Use your preferred IDE**
+## Technologies Used
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **HTML5** - Semantic markup structure
+- **CSS3** - Modern styling with flexbox, grid, animations, and responsive design
+- **Vanilla JavaScript** - Interactive elements without any frameworks or libraries
+- **FontAwesome** - For icons
+- **Google Fonts** - Typography with Poppins font
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Project Structure
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+portfolio-hackathon/
+├── index.html
+├── src/
+│   ├── styles.css
+│   └── script.js
+├── README.md
 ```
 
-**Edit a file directly in GitHub**
+## Development Process
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Planning & Design**: Started with a wireframe and color palette selection
+2. **HTML Structure**: Created semantic HTML markup for all sections
+3. **CSS Styling**: Implemented responsive styles with modern CSS techniques
+4. **JavaScript Functionality**: Added interactive elements and animations
+5. **Testing & Refinement**: Ensured cross-browser compatibility and responsive behavior
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The project is deployed using GitHub Pages. To deploy your own version:
 
-## What technologies are used for this project?
+1. Fork this repository
+2. Go to repository settings
+3. Navigate to "Pages" section
+4. Select "main" branch as source
+5. Save the changes and wait for the deployment to complete
 
-This project is built with .
+## Future Improvements
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Add more projects with detailed case studies
+- Implement dark/light mode toggle
+- Add a blog section
+- Enhance animations and transitions
+- Add filtering capability for projects
 
-## How can I deploy this project?
+## Credits
 
-Simply open [Lovable](https://lovable.dev/projects/13841211-95dd-4e38-b208-d6e944e3b9bf) and click on Share -> Publish.
+- Images: [Unsplash](https://unsplash.com)
+- Icons: [Font Awesome](https://fontawesome.com)
+- Fonts: [Google Fonts](https://fonts.google.com)
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes it is!
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contact
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For any inquiries or suggestions, please reach out:
+- Email: your.email@example.com
+- GitHub: [Your GitHub Profile](https://github.com/your-username)

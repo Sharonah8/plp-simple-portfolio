@@ -1,26 +1,303 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hackathon-flair-showcase</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="Lovable Generated Project" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>Developer Portfolio | Hackathon Project</title>
+    <meta name="description" content="Software Developer Portfolio Showcase" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">
+            <a href="#"><span class="highlight">&lt;</span>DevPortfolio<span class="highlight">/&gt;</span></a>
+          </div>
+          <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="title">Hi, I'm <span class="highlight">Alex Smith</span></h1>
+            <h2 class="subtitle">Software Developer</h2>
+            <p class="description">
+              I build responsive web applications with clean, efficient code.
+            </p>
+            <div class="cta-buttons">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="code-container">
+              <pre><code>
+<span class="code-comment">// Hello World Program</span>
+<span class="code-keyword">function</span> <span class="code-function">greet</span>() {
+  <span class="code-keyword">const</span> skills = [
+    <span class="code-string">"HTML"</span>, 
+    <span class="code-string">"CSS"</span>, 
+    <span class="code-string">"JavaScript"</span>,
+    <span class="code-string">"Python"</span>,
+    <span class="code-string">"Databases"</span>
+  ];
+  
+  <span class="code-keyword">return</span> <span class="code-string">"Welcome to my portfolio!"</span>;
+}
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                I'm a passionate software developer with a focus on creating clean, 
+                user-friendly applications. My journey in tech began with curiosity
+                about how websites work, which led me to learn HTML, CSS, and JavaScript.
+              </p>
+              <p>
+                Since then, I've expanded my skills to include Python programming 
+                and database management. I enjoy solving complex problems and turning 
+                ideas into functional, beautiful code.
+              </p>
+              <p>
+                When I'm not coding, you can find me exploring new technologies, 
+                contributing to open-source projects, or learning about the latest
+                industry trends.
+              </p>
+            </div>
+            <div class="about-stats">
+              <div class="stat">
+                <h3>2+</h3>
+                <p>Years of Experience</p>
+              </div>
+              <div class="stat">
+                <h3>10+</h3>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stat">
+                <h3>5+</h3>
+                <p>Technologies Mastered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <h2 class="section-title">My Skills</h2>
+          <div class="skills-container">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+              </div>
+              <h3>HTML</h3>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p>Semantic HTML5, Accessibility, SEO best practices</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+              </div>
+              <h3>CSS</h3>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <p>Responsive design, Animations, CSS Grid & Flexbox</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-js"></i>
+              </div>
+              <h3>JavaScript</h3>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+              <p>ES6+, DOM manipulation, Asynchronous programming</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-python"></i>
+              </div>
+              <h3>Python</h3>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <p>Data analysis, Automation, Web scraping</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3>Databases</h3>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p>SQL, NoSQL, Database design & optimization</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <h2 class="section-title">My Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="E-commerce Website" />
+              </div>
+              <div class="project-content">
+                <h3>E-commerce Website</h3>
+                <p>A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.</p>
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">Live Demo</a>
+                  <a href="#" class="btn btn-small btn-outline">Source Code</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Weather App" />
+              </div>
+              <div class="project-content">
+                <h3>Weather Application</h3>
+                <p>A weather forecast application that fetches real-time data from an API and displays it in a clean interface.</p>
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>API</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">Live Demo</a>
+                  <a href="#" class="btn btn-small btn-outline">Source Code</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="Data Analysis Tool" />
+              </div>
+              <div class="project-content">
+                <h3>Data Analysis Tool</h3>
+                <p>A Python-based tool that processes large datasets and visualizes insights through interactive charts.</p>
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>Pandas</span>
+                  <span>Data Visualization</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">Live Demo</a>
+                  <a href="#" class="btn btn-small btn-outline">Source Code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="view-more">
+            <a href="#" class="btn btn-outline">View More Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-content">
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>alex.smith@example.com</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <p>+1 (555) 123-4567</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>San Francisco, CA</p>
+              </div>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-dev"></i></a>
+              </div>
+            </div>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2023 Developer Portfolio. All Rights Reserved.</p>
+          <p>Designed and built with <span class="heart">❤</span> for the Hackathon</p>
+        </div>
+      </footer>
+    </div>
+
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <script src="src/script.js"></script>
   </body>
 </html>
