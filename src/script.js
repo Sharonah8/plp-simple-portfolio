@@ -1,6 +1,14 @@
-
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Check for saved theme preference or use system preference
+  const savedTheme = localStorage.getItem('theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // Apply saved theme
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+  
   // Remove loading state after a short delay
   setTimeout(() => {
     document.body.classList.remove('loading');
