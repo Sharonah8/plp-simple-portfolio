@@ -26,6 +26,30 @@ const Index = () => {
     }
   }, []);
 
+  // Initialize tab functionality
+  useEffect(() => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and panes
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get corresponding tab pane and activate it
+        const tabId = button.getAttribute('data-tab');
+        const tabPane = document.getElementById(tabId);
+        if (tabPane) {
+          tabPane.classList.add('active');
+        }
+      });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -347,7 +371,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section - Update location */}
+      {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
           <h2 className="section-title">Let's Connect</h2>
