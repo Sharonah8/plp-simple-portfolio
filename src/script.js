@@ -1,6 +1,13 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Remove loading state after a short delay
+  setTimeout(() => {
+    document.body.classList.remove('loading');
+    // Fade in elements sequentially
+    animateElementsIn();
+  }, 500);
+  
   // Navigation menu toggle for mobile
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -16,32 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const navItems = document.querySelectorAll('.nav-link');
   
   window.addEventListener('scroll', function() {
-    let current = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-        current = section.getAttribute('id');
-      }
-    });
-    
-    navItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('href').substring(1) === current) {
-        item.classList.add('active');
-      }
-    });
+    // Update active nav link
+    updateActiveNavLink();
     
     // Change navbar background when scrolled
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.style.padding = '15px 0';
-      navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-    } else {
-      navbar.style.padding = '20px 0';
-      navbar.style.boxShadow = 'none';
-    }
+    updateNavbarStyle();
+    
+    // Run animate on scroll function
+    animateOnScroll();
   });
   
   // Form submission
@@ -71,21 +60,146 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Add fade-in animation to elements as they come into view
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.skill-card, .project-card, .stat');
-    
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.3;
-      
-      if (elementPosition < screenPosition) {
-        element.classList.add('fade-in');
-      }
-    });
-  };
+  // Initialize tab system
+  initTabs();
   
-  // Run animate on scroll function when the page loads and on scroll
+  // Initialize skill progress animation
+  initSkillProgress();
+
+  // Initialize cursor follower
+  initCursorFollower();
+  
+  // Run animate on scroll function when the page loads
   window.addEventListener('load', animateOnScroll);
-  window.addEventListener('scroll', animateOnScroll);
 });
+
+// Update active nav link based on scroll position
+function updateActiveNavLink() {
+  const sections = document.querySelectorAll('section');
+  const navItems = document.querySelectorAll('.nav-link');
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('href').substring(1) === current) {
+      item.classList.add('active');
+    }
+  });
+}
+
+// Update navbar style on scroll
+function updateNavbarStyle() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.style.padding = '15px 0';
+    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+  } else {
+    navbar.style.padding = '20px 0';
+    navbar.style.boxShadow = 'none';
+  }
+}
+
+// Initialize tabs for skills section
+function initTabs() {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  if (tabButtons.length > 0) {
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and panes
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get the target tab
+        const targetTab = button.dataset.tab;
+        
+        // Add active class to corresponding pane
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+  }
+}
+
+// Initialize skill progress bars animation
+function initSkillProgress() {
+  const skillProgressBars = document.querySelectorAll('.skill-progress');
+  
+  skillProgressBars.forEach(bar => {
+    const targetWidth = bar.style.width;
+    bar.style.width = '0';
+    
+    // Set correct width when the element is in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bar.style.width = targetWidth;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(bar);
+  });
+}
+
+// Animate elements as they come into view
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .contact-card');
+  
+  elements.forEach(element => {
+    const elementPosition = element.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+    
+    if (elementPosition < screenPosition) {
+      element.classList.add('fade-in');
+    }
+  });
+}
+
+// Animate elements on page load
+function animateElementsIn() {
+  const elements = document.querySelectorAll('.hero-content, .hero-image, .rotating-cube');
+  
+  elements.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add('fade-in');
+    }, 200 * index);
+  });
+}
+
+// Initialize custom cursor follower
+function initCursorFollower() {
+  const cursor = document.querySelector('.cursor-follower');
+  
+  if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    
+    // Add active class on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-card, .social-link, input, textarea');
+    
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+      });
+    });
+  }
+}
