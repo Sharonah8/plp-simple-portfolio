@@ -184,7 +184,7 @@ const Index = () => {
                     <h3>HTML5</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 90%"></div>
+                        <div className="skill-progress" style={{ width: '90%' }}></div>
                       </div>
                       <span className="skill-percent">90%</span>
                     </div>
@@ -202,7 +202,7 @@ const Index = () => {
                     <h3>CSS3</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 85%"></div>
+                        <div className="skill-progress" style={{ width: '85%' }}></div>
                       </div>
                       <span className="skill-percent">85%</span>
                     </div>
@@ -220,7 +220,7 @@ const Index = () => {
                     <h3>JavaScript</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 75%"></div>
+                        <div className="skill-progress" style={{ width: '75%' }}></div>
                       </div>
                       <span className="skill-percent">75%</span>
                     </div>
@@ -242,7 +242,7 @@ const Index = () => {
                     <h3>Python</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 80%"></div>
+                        <div className="skill-progress" style={{ width: '80%' }}></div>
                       </div>
                       <span className="skill-percent">80%</span>
                     </div>
@@ -260,7 +260,7 @@ const Index = () => {
                     <h3>Databases</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 70%"></div>
+                        <div className="skill-progress" style={{ width: '70%' }}></div>
                       </div>
                       <span className="skill-percent">70%</span>
                     </div>
@@ -282,7 +282,7 @@ const Index = () => {
                     <h3>Git</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 75%"></div>
+                        <div className="skill-progress" style={{ width: '75%' }}></div>
                       </div>
                       <span className="skill-percent">75%</span>
                     </div>
@@ -300,7 +300,7 @@ const Index = () => {
                     <h3>Command Line</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style="width: 65%"></div>
+                        <div className="skill-progress" style={{ width: '65%' }}></div>
                       </div>
                       <span className="skill-percent">65%</span>
                     </div>
