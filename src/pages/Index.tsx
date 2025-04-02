@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
+import '../styles/index.css';
 
 const Index = () => {
   const [theme, setTheme] = useState('light');
