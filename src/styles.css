@@ -1,3 +1,82 @@
+/* Modify existing styles to use gold and black palette */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-title {
+  color: hsl(var(--secondary));
+  position: relative;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: hsl(var(--accent));
+  border-radius: 2px;
+}
+
+.highlight {
+  color: hsl(var(--accent));
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--primary-foreground));
+  border: 2px solid hsl(var(--accent));
+}
+
+.btn-primary:hover {
+  background-color: hsl(var(--accent) / 0.9);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: hsl(var(--secondary));
+  border: 2px solid hsl(var(--accent));
+}
+
+.btn-outline:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--primary-foreground));
+}
+
+.navbar {
+  background-color: hsla(var(--background), 0.8);
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.timeline-content {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 4px 6px hsla(var(--secondary), 0.1);
+}
+
+.skill-card {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 4px 6px hsla(var(--secondary), 0.1);
+}
+
+.project-card {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 4px 6px hsla(var(--secondary), 0.1);
+}
 
 /* General Styles */
 body {

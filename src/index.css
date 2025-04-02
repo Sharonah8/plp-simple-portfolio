@@ -1,66 +1,39 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
     --background: 0 0% 98%;
-    --foreground: 224 71.4% 4.1%;
+    --foreground: 0 0% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 262.1 83.3% 57.8%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 1rem;
-    --hero-bg: 0 0% 98%;
-    --console-text: 220 8.9% 46.1%;
-    --accent-color: 262.1 83.3% 57.8%;
-    --accent-color-hover: 262.1 83.3% 47.8%;
-    --card-bg: 0 0% 100%;
-    --skill-progress: 262.1 83.3% 57.8%;
+    --card-foreground: 0 0% 10%;
+    --primary: 40 70% 55%; /* Gold tone */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 10%; /* Black */
+    --secondary-foreground: 40 70% 55%; /* Gold text on black */
+    --accent: 40 70% 55%; /* Gold */
+    --accent-foreground: 0 0% 10%;
+    --border: 40 20% 80%; /* Soft gold border */
+    --ring: 40 70% 55%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 263.4 70% 50.4%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
-    --hero-bg: 224 71.4% 4.1%;
-    --console-text: 217.9 10.6% 64.9%;
-    --accent-color: 263.4 70% 50.4%;
-    --accent-color-hover: 263.4 70% 60.4%;
-    --card-bg: 215 27.9% 16.9%;
-    --skill-progress: 263.4 70% 50.4%;
+    --background: 0 0% 10%;
+    --foreground: 40 70% 55%; /* Gold text */
+    --card: 0 0% 15%;
+    --card-foreground: 40 70% 55%;
+    --primary: 40 70% 55%; /* Gold */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 40 70% 55%; /* Gold */
+    --secondary-foreground: 0 0% 10%;
+    --accent: 40 70% 55%;
+    --accent-foreground: 0 0% 10%;
+    --border: 40 50% 40%;
+    --ring: 40 70% 55%;
   }
 }
 
