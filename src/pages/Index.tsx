@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 const Index = () => {
   const [theme, setTheme] = useState('light');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Toggle between light and dark mode
   const toggleTheme = () => {
@@ -12,6 +13,20 @@ const Index = () => {
     setTheme(newTheme);
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', newTheme);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Handle navbar background on scroll
+  const handleScroll = () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
   };
 
   // Initialize theme on component mount
@@ -25,6 +40,13 @@ const Index = () => {
     if (savedTheme === 'dark') {
       document.documentElement.classList.add('dark');
     }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   // Initialize tab functionality
@@ -71,7 +93,7 @@ const Index = () => {
     
     // Add scroll animation to elements
     const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .contact-card');
+      const elements = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .contact-card, .grid-item');
       
       elements.forEach(element => {
         const position = element.getBoundingClientRect();
@@ -99,14 +121,14 @@ const Index = () => {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <a href="#"><span className="highlight">{'{'}</span>CodeArtisan<span className="highlight">{'}'}</span></a>
+            <a href="#"><span className="highlight">S</span>haron</a>
           </div>
-          <div className="nav-links">
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <a href="#home" className="nav-link active">Home</a>
             <a href="#about" className="nav-link">Journey</a>
             <a href="#skills" className="nav-link">Craft</a>
-            <a href="#projects" className="nav-link">Creations</a>
-            <a href="#contact" className="nav-link">Connect</a>
+            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#contact" className="nav-link">Contact</a>
             <Button 
               onClick={toggleTheme}
               variant="ghost" 
@@ -117,8 +139,8 @@ const Index = () => {
               {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
           </div>
-          <div className="menu-toggle">
-            <i className="fas fa-bars"></i>
+          <div className="menu-toggle" onClick={toggleMenu}>
+            {menuOpen ? <X /> : <Menu />}
           </div>
         </div>
       </nav>
@@ -128,39 +150,38 @@ const Index = () => {
         <div className="container">
           <div className="hero-content">
             <div className="greeting-text">
-              <i className="fas fa-code mr-2"></i> Hello, World!
+              Hello, World!
             </div>
             <h1 className="title">I'm <span className="highlight">Sharon Nyamongo</span></h1>
-            <h2 className="subtitle">An Emerging Developer</h2>
+            <h2 className="subtitle">Developer & Designer</h2>
             <p className="description">
-              Passionate about technology, eager to learn, and ready to transform ideas into code. 
-              Join me on my journey as I build digital experiences that matter.
+              Passionate about technology and design, I transform ideas into elegant digital experiences. 
+              Join me on my journey as I build solutions that matter.
             </p>
             <div className="cta-buttons">
               <a href="#skills" className="btn btn-primary">
-                <span>Explore My Skills</span>
-                <i className="fas fa-arrow-right"></i>
+                <span>My Skills</span>
               </a>
               <a href="#contact" className="btn btn-outline">
                 <span>Get In Touch</span>
-                <i className="fas fa-paper-plane"></i>
               </a>
             </div>
           </div>
           <div className="hero-image">
-            <div className="rotating-cube">
-              <div className="cube-face front"><i className="fab fa-html5"></i></div>
-              <div className="cube-face back"><i className="fab fa-css3-alt"></i></div>
-              <div className="cube-face right"><i className="fab fa-js"></i></div>
-              <div className="cube-face left"><i className="fab fa-python"></i></div>
-              <div className="cube-face top"><i className="fas fa-database"></i></div>
-              <div className="cube-face bottom"><i className="fas fa-code"></i></div>
+            <div className="hero-grid">
+              <div className="grid-item">
+                <i className="fab fa-html5"></i>
+              </div>
+              <div className="grid-item">
+                <i className="fab fa-css3-alt"></i>
+              </div>
+              <div className="grid-item">
+                <i className="fab fa-js"></i>
+              </div>
+              <div className="grid-item">
+                <i className="fab fa-python"></i>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="scroll-indicator">
-          <div className="mouse">
-            <div className="wheel"></div>
           </div>
         </div>
       </section>
@@ -386,26 +407,26 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="projects">
         <div className="container">
-          <h2 className="section-title">My Creations</h2>
+          <h2 className="section-title">My Work</h2>
           <div className="projects-showcase">
-            <div className="project-card featured empty-state">
+            <div className="project-card empty-state">
               <div className="project-preview">
                 <div className="empty-project-placeholder">
                   <i className="fas fa-code"></i>
-                  <p>Projects Coming Soon</p>
+                  <p>Coming Soon</p>
                 </div>
               </div>
               <div className="project-info">
-                <h3 className="project-title">Learning in Progress</h3>
+                <h3 className="project-title">Portfolio in Progress</h3>
                 <p className="project-description">
-                  As a budding developer, I'm currently building my skills and working on exciting projects. 
-                  Check back soon to see my growing portfolio of work!
+                  I'm currently building innovative projects to showcase my skills. Check back soon to see my 
+                  growing portfolio of work that demonstrates my passion for development.
                 </p>
                 <div className="project-tech">
                   <span>HTML</span>
                   <span>CSS</span>
                   <span>JavaScript</span>
-                  <span>Python</span>
+                  <span>React</span>
                 </div>
               </div>
             </div>
@@ -416,14 +437,14 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
-          <h2 className="section-title">Let's Connect</h2>
+          <h2 className="section-title">Get in Touch</h2>
           <div className="contact-wrapper">
             <div className="contact-info">
               <div className="contact-card">
                 <div className="contact-icon">
                   <i className="fas fa-paper-plane"></i>
                 </div>
-                <h3>Email Me At</h3>
+                <h3>Email</h3>
                 <p>nyamongosharon88@gmail.com</p>
               </div>
               
@@ -431,7 +452,7 @@ const Index = () => {
                 <div className="contact-icon">
                   <i className="fas fa-map-marker-alt"></i>
                 </div>
-                <h3>Based In</h3>
+                <h3>Location</h3>
                 <p>Nairobi, Kenya</p>
               </div>
               
@@ -443,6 +464,14 @@ const Index = () => {
                 <p>Mon - Fri: 9am - 6pm EAT</p>
               </div>
               
+              <div className="contact-card">
+                <div className="contact-icon">
+                  <i className="fas fa-phone-alt"></i>
+                </div>
+                <h3>Call Me</h3>
+                <p>Available on request</p>
+              </div>
+              
               <div className="social-links">
                 <a href="#" className="social-link" aria-label="GitHub"><i className="fab fa-github"></i></a>
                 <a href="#" className="social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
@@ -452,17 +481,17 @@ const Index = () => {
             
             <div className="contact-form">
               <div className="form-header">
-                <h3>Send Me a Message</h3>
-                <p>Got a question or proposal, or just want to say hello? Go ahead.</p>
+                <h3>Send a Message</h3>
+                <p>Have a question or want to collaborate? I'd love to hear from you.</p>
               </div>
               
               <div className="form-group">
-                <label htmlFor="name">Your Name</label>
+                <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" required />
               </div>
               
               <div className="form-group">
-                <label htmlFor="email">Your Email</label>
+                <label htmlFor="email">Email</label>
                 <input type="email" id="email" name="email" required />
               </div>
               
@@ -472,13 +501,12 @@ const Index = () => {
               </div>
               
               <div className="form-group">
-                <label htmlFor="message">Your Message</label>
+                <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows={5} required></textarea>
               </div>
               
-              <button type="submit" className="btn btn-primary">
+              <button type="submit">
                 <span>Send Message</span>
-                <i className="fas fa-paper-plane"></i>
               </button>
             </div>
           </div>
@@ -489,17 +517,17 @@ const Index = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <span className="highlight">{'{'}</span>CodeArtisan<span className="highlight">{'}'}</span>
+            <span className="highlight">S</span>haron
           </div>
-          <p className="footer-quote">"Code is poetry in motion"</p>
+          <p className="footer-quote">"Turning ideas into elegant solutions"</p>
           <div className="footer-nav">
             <a href="#home">Home</a>
             <a href="#about">Journey</a>
             <a href="#skills">Craft</a>
-            <a href="#projects">Creations</a>
-            <a href="#contact">Connect</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
           </div>
-          <p className="copyright">&copy; {new Date().getFullYear()} Sharon Nyamongo. Crafted with <span className="heart">❤</span> and a lot of coffee</p>
+          <p className="copyright">&copy; {new Date().getFullYear()} Sharon Nyamongo. Made with <span className="heart">❤</span> and code</p>
         </div>
       </footer>
     </div>
