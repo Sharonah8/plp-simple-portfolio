@@ -1,0 +1,8 @@
+
+:root {
+  --accent-color: hsl(var(--accent));
+  --accent-color-hover: hsl(var(--accent) / 0.9);
+  --card-bg: hsl(var(--card));
+  --muted-foreground: hsl(var(--foreground) / 0.7);
+  --skill-progress: hsl(var(--accent));
+}
