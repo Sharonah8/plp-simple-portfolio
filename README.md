@@ -23,6 +23,6 @@ The project is deployed using GitHub Pages. To update:
 
 ## Contact
 
-- Email: sharon.nyamongo@example.com
-- GitHub: [Your GitHub Profile](https://github.com/your-username)
+- Email: nyamongosharon88@gmail.com
+- GitHub: [Your GitHub Profile](https://github.com/Sharonah8)
 
