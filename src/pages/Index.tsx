@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Sun, Moon } from "lucide-react";
@@ -48,6 +49,48 @@ const Index = () => {
         }
       });
     });
+
+    // Initialize skill progress animation
+    const skillProgressBars = document.querySelectorAll('.skill-progress');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBar = entry.target as HTMLElement;
+          const targetWidth = progressBar.dataset.progress || '0%';
+          setTimeout(() => {
+            progressBar.style.width = targetWidth;
+          }, 200);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    skillProgressBars.forEach(bar => {
+      observer.observe(bar);
+    });
+    
+    // Add scroll animation to elements
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .contact-card');
+      
+      elements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        
+        // If element is in viewport
+        if(position.top < window.innerHeight && position.bottom >= 0) {
+          element.classList.add('fade-in');
+        }
+      });
+    };
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    // Run once on initial load
+    animateOnScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', animateOnScroll);
+    };
   }, []);
 
   return (
@@ -82,22 +125,26 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        <div className="code-background"></div>
         <div className="container">
           <div className="hero-content">
             <div className="greeting-text">
-              <span className="console-line">const developer = {'{'}</span>
-              <h1 className="title"><span className="console-text">name:</span> "Sharon Nyamongo",</h1>
-              <h2 className="subtitle"><span className="console-text">title:</span> "Emerging Developer",</h2>
-              <span className="console-line">passion: "Learning and Growing",</span>
-              <span className="console-line">{'}'};</span>
+              <i className="fas fa-code mr-2"></i> Hello, World!
             </div>
+            <h1 className="title">I'm <span className="highlight">Sharon Nyamongo</span></h1>
+            <h2 className="subtitle">An Emerging Developer</h2>
             <p className="description">
-              Passionate about technology, eager to learn, and ready to transform ideas into code.
+              Passionate about technology, eager to learn, and ready to transform ideas into code. 
+              Join me on my journey as I build digital experiences that matter.
             </p>
             <div className="cta-buttons">
-              <a href="#skills" className="btn btn-primary">Explore My Skills</a>
-              <a href="#contact" className="btn btn-outline">Get In Touch</a>
+              <a href="#skills" className="btn btn-primary">
+                <span>Explore My Skills</span>
+                <i className="fas fa-arrow-right"></i>
+              </a>
+              <a href="#contact" className="btn btn-outline">
+                <span>Get In Touch</span>
+                <i className="fas fa-paper-plane"></i>
+              </a>
             </div>
           </div>
           <div className="hero-image">
@@ -114,11 +161,6 @@ const Index = () => {
         <div className="scroll-indicator">
           <div className="mouse">
             <div className="wheel"></div>
-          </div>
-          <div className="arrow">
-            <span></span>
-            <span></span>
-            <span></span>
           </div>
         </div>
       </section>
@@ -208,7 +250,7 @@ const Index = () => {
                     <h3>HTML5</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '90%' }}></div>
+                        <div className="skill-progress" data-progress="90%"></div>
                       </div>
                       <span className="skill-percent">90%</span>
                     </div>
@@ -226,7 +268,7 @@ const Index = () => {
                     <h3>CSS3</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '85%' }}></div>
+                        <div className="skill-progress" data-progress="85%"></div>
                       </div>
                       <span className="skill-percent">85%</span>
                     </div>
@@ -244,7 +286,7 @@ const Index = () => {
                     <h3>JavaScript</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '75%' }}></div>
+                        <div className="skill-progress" data-progress="75%"></div>
                       </div>
                       <span className="skill-percent">75%</span>
                     </div>
@@ -266,7 +308,7 @@ const Index = () => {
                     <h3>Python</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '80%' }}></div>
+                        <div className="skill-progress" data-progress="80%"></div>
                       </div>
                       <span className="skill-percent">80%</span>
                     </div>
@@ -284,7 +326,7 @@ const Index = () => {
                     <h3>Databases</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '70%' }}></div>
+                        <div className="skill-progress" data-progress="70%"></div>
                       </div>
                       <span className="skill-percent">70%</span>
                     </div>
@@ -306,7 +348,7 @@ const Index = () => {
                     <h3>Git</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '75%' }}></div>
+                        <div className="skill-progress" data-progress="75%"></div>
                       </div>
                       <span className="skill-percent">75%</span>
                     </div>
@@ -324,7 +366,7 @@ const Index = () => {
                     <h3>Command Line</h3>
                     <div className="skill-level">
                       <div className="skill-progress-bar">
-                        <div className="skill-progress" style={{ width: '65%' }}></div>
+                        <div className="skill-progress" data-progress="65%"></div>
                       </div>
                       <span className="skill-percent">65%</span>
                     </div>
